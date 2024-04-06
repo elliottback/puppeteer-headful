@@ -1,6 +1,6 @@
-name: "Puppeteer Headful"
+name: "Puppeteer non-Headless"
 description: "A GitHub Action / Docker image for Puppeteer, the Headful Chrome Node API so you can test Chrome extensions"
-author: "Jacob Lowe"
+author: "Elliott Back"
 inputs:
   args:
     description: "A command to run inside the container normally this would be a npm script to start testing."
