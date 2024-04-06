@@ -4,6 +4,10 @@
 
 > Versioning of this container is based on the version of NodeJS in the container
 
+## Fork
+
+The original action is not working for me, I think because pupeteer has stopped working with "stable" tag.  This fork will use the action version.
+
 ## Purpose
 
 This container is available to Github Action because there are some situations, mostly testing [Chrome Extensions](https://pptr.dev/#?product=Puppeteer&version=v1.18.1&show=api-working-with-chrome-extensions), where you can not run Puppeteer in headless mode.
