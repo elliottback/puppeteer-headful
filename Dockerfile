@@ -1,4 +1,4 @@
-FROM node:20.12.0
+FROM node:22.18.0
 
 LABEL "com.github.actions.name"="Puppeteer non-Headless"
 LABEL "com.github.actions.description"="A GitHub Action / Docker image for Puppeteer, the Headful Chrome Node API"
