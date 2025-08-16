@@ -1,3 +1,33 @@
+# NOTE!
+
+This is no longer needed after Chrome v137 and [Chrome for Testing](https://developer.chrome.com/blog/chrome-for-testing).
+
+You can achieve the desired headful test by using something like this in your ci:
+
+```yaml
+    - name: Start Xvfb and Test
+      run: |
+        Xvfb :99 -screen 0 1920x1080x24 &
+        export DISPLAY=:99
+        npm test
+```
+
+And something like this to start puppeteer:
+
+```javascript
+    browser = await puppeteer.launch({
+        headless: false, 									// extension are allowed only in headful mode
+        // devtools: true,                                  // Enable DevTools for debugging
+        args: [
+          `--no-sandbox`,									//Required for this to work in github CI environment
+          `--start-maximized`,                              // this flag maximizes the browser window
+          `--display=${process.env.DISPLAY ?? ':0'}`,       // fix for LXDE desktops
+          `--disable-extensions-except=${extensionPath}`,
+          `--load-extension=${extensionPath}`
+        ]
+    });
+```
+
 # Puppeteer Headful
 
 [Github Action](https://github.com/features/actions) for [Puppeteer](https://github.com/GoogleChrome/puppeteer) that can be ran "headful" or not headless.
